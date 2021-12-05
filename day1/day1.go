@@ -33,6 +33,7 @@ func Day1() {
 		}
 	}
 
+	fmt.Println("Day 1 part 1 andwer:")
 	fmt.Println(counter)
 }
 
