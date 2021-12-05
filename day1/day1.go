@@ -26,10 +26,16 @@ func Day1() {
 	}
 
 	counter := 0
-	for i := 1; i < len(values); i++ {
-		if values[i-1] < values[i] {
+	for i := 1; i < len(values)-2; i++ {
+
+		if getSubsetSum(i-1, values) < getSubsetSum(i, values) {
 			counter += 1
 		}
 	}
+
 	fmt.Println(counter)
+}
+
+func getSubsetSum(startIndex int, values []int) int {
+	return values[startIndex] + values[startIndex+1] + values[startIndex+2]
 }
