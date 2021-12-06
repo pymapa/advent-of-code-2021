@@ -10,8 +10,9 @@ import (
 )
 
 type Position struct {
-	x int
-	y int
+	horizontal int
+	vertical   int
+	aim        int
 }
 
 func Day2() {
@@ -22,8 +23,9 @@ func Day2() {
 	scanner := bufio.NewScanner(file)
 
 	position := Position{
-		x: 0,
-		y: 0,
+		horizontal: 0,
+		vertical:   0,
+		aim:        0,
 	}
 
 	for scanner.Scan() {
@@ -31,7 +33,7 @@ func Day2() {
 	}
 
 	fmt.Println("Day 2 part 1:")
-	fmt.Println(position.x * position.y)
+	fmt.Println(position.horizontal * position.vertical)
 
 }
 
@@ -45,11 +47,12 @@ func handleInstruction(position Position, instruction string) Position {
 
 	switch direction {
 	case "up":
-		position.y -= value
+		position.aim -= value
 	case "down":
-		position.y += value
+		position.aim += value
 	case "forward":
-		position.x += value
+		position.horizontal += value
+		position.vertical += position.aim * value
 	}
 
 	return position
