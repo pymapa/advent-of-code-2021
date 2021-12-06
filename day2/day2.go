@@ -32,7 +32,7 @@ func Day2() {
 		position = handleInstruction(position, scanner.Text())
 	}
 
-	fmt.Println("Day 2 part 1:")
+	fmt.Println("Day 2 part 2:")
 	fmt.Println(position.horizontal * position.vertical)
 
 }
